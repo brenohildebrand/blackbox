@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js && webpack --config ./electron/loadingWin/webpack.js",
-    "electron": "electron ./electron",
+    "electron": "npx electron ./electron",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "BlackBoxTeam",
@@ -32,11 +32,15 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "fs-extra": "^8.1.0",
     "fuzzy-search": "^3.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-draggable": "^4.4.3",
     "react-router-dom": "^5.2.0",
     "svg-parser": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=14.14.0"
   }
 }

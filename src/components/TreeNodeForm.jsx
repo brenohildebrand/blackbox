@@ -102,7 +102,25 @@ const TreeNodeForm = () => {
     setCloseButtonStyle(`${styles.closeButton} fullOpacity`);
   }, []);
 
+  //--------------------------------------------------//
+  // When searchValue changes --> update searchResult //
+  //--------------------------------------------------//
+  useEffect(() => {
+    updateSearchResult();
+  }, [searchValue]);
+
   //! Functions
+  //------------------//
+  // Search Functions //
+  //------------------//
+  async function updateSearchResult() {
+    try {
+      setSearchResult(await window.api.invoke('SEARCH_ICONS', searchValue, 5));
+    } catch (err) {
+      throw err;
+    }
+  }
+
   //-------------------//
   // Support Functions //
   //-------------------//
@@ -289,7 +307,7 @@ const TreeNodeForm = () => {
 
           // There are five icons cause just five were asked from the backend.
           return searchResult.map((icon, idx) => {
-            if (currentIcon === icon)
+            if (currentIcon === icon) {
               return (
                 <div
                   key={idx}
@@ -299,6 +317,7 @@ const TreeNodeForm = () => {
                   {svg2react(icon)}
                 </div>
               );
+            }
 
             return (
               <div key={idx} onClick={(e) => handleIconOnClick(e, icon)}>

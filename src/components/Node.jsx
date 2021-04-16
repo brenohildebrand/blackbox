@@ -39,7 +39,7 @@ const Node = (props) => {
   //--------------------//
   // Node Icon Settings //
   //--------------------//
-  const r = nodesSettings[status].circle;
+  const r = nodesSettings[status].circle.r;
 
   const nodeIconSettings = {
     width: r * 0.8,

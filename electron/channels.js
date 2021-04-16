@@ -15,4 +15,6 @@ module.exports = {
   GET_ID: 'GET_ID',
 
   SEARCH_ICONS: 'SEARCH_ICONS',
+
+  SAVE_CHANGES: 'SAVE_CHANGES',
 };

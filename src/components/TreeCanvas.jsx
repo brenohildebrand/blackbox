@@ -139,10 +139,6 @@ const TreeCanvas = (props) => {
     }
   }, [mouseOnMoveEvent]);
 
-  useEffect(() => {}, [intervalXAxisID]);
-
-  useEffect(() => {}, [intervalYAxisID]);
-
   //-------------//
   // Handle Zoom //
   //-------------//
@@ -159,7 +155,12 @@ const TreeCanvas = (props) => {
     if (mouseOnWheelEvent === null) return;
 
     const e = mouseOnWheelEvent;
-    setZoom(Math.max(0.125, Math.min(zoom + e.deltaY * 0.125, 2)));
+    let direction = 0;
+
+    if (e.deltaY < 0) direction = -1; // Up
+    if (e.deltaY > 0) direction = 1; // Down
+
+    setZoom(Math.max(0.125, Math.min(zoom + direction * 0.125, 2)));
   }, [mouseOnWheelEvent]);
 
   useEffect(() => {
@@ -179,6 +180,15 @@ const TreeCanvas = (props) => {
   //---------------//
   const handleResize = (e) => {
     e.preventDefault();
+
+    /*
+    setViewBox({
+      ...Object.assign(viewBox, {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      }),
+    });
+    */
   };
 
   //------------------//

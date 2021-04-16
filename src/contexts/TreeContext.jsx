@@ -145,8 +145,6 @@ const TreeProvider = (props) => {
   };
   const fetchTreeData = async () => {
     try {
-      return { nodes: {}, paths: {} };
-
       const treeData = await window.api.invoke('FETCH_TREE_DATA');
       return treeData;
     } catch (err) {
@@ -155,76 +153,6 @@ const TreeProvider = (props) => {
   };
   const fetchSettingsData = async () => {
     try {
-      return {
-        nodes: {
-          pending: {
-            circle: {
-              r: 60,
-              strokeWidth: 1.5,
-              stroke: 'white',
-              fill: 'black',
-            },
-            svg: {
-              fill: 'white',
-              strokeWidth: 1.5,
-              stroke: 'white',
-            },
-          },
-          done: {
-            circle: {
-              r: 60,
-              strokeWidth: 1.5,
-              stroke: '#FAFF10',
-              fill: '#FAFF10',
-              filter: 'url(#filter_yellow_bright)',
-            },
-            svg: {
-              fill: 'black',
-              strokeWidth: 1.5,
-              stroke: 'white',
-            },
-          },
-        },
-        subNodes: {
-          pending: {
-            circle: {
-              r: 25,
-              strokeWidth: 1.5,
-              stroke: 'white',
-              fill: 'black',
-            },
-            svg: {
-              fill: 'white',
-              strokeWidth: 1.5,
-              stroke: 'white',
-            },
-          },
-          done: {
-            circle: {
-              r: 25,
-              strokeWidth: 1.5,
-              stroke: '#FAFF10',
-              fill: '#FAFF10',
-              filter: 'url(#filter_yellow_bright)',
-            },
-            svg: {
-              fill: 'black',
-              strokeWidth: 1.5,
-              stroke: 'white',
-            },
-          },
-        },
-        paths: {
-          pending: { fill: 'none', stroke: 'white', strokeWidth: '3' },
-          done: {
-            fill: 'none',
-            stroke: '#FAFF10',
-            strokeWidth: '3',
-            filter: 'url(#filter_yellow_bright)',
-          },
-        },
-      };
-
       const settingsData = await window.api.invoke('FETCH_SETTINGS_DATA');
       return settingsData;
     } catch (err) {
@@ -233,18 +161,8 @@ const TreeProvider = (props) => {
   };
   const fetchID = async () => {
     try {
-      return Math.ceil(Math.random() * 100);
       const ID = await window.api.invoke('GET_ID');
       return ID;
-    } catch (err) {
-      throw err;
-    }
-  };
-  // Updating
-  const putTreeData = async (treeData) => {
-    try {
-      await window.api.invoke('PUT_TREE_DATA', treeData);
-      return 0;
     } catch (err) {
       throw err;
     }
@@ -365,6 +283,10 @@ const TreeProvider = (props) => {
       setData({ ...Object.assign(data, { treeData: treeDataCopy }) });
 
       hideNodeForm();
+
+      window.api.invoke('SAVE_CHANGES', {
+        ...Object.assign(data, { treeData: treeDataCopy }),
+      });
     },
 
     // SubNode
@@ -439,11 +361,9 @@ const TreeProvider = (props) => {
 
       hideNodeForm();
 
-      /*
-
-        window.api.invoke('SAVE_CHANGES', data);
-
-      */
+      window.api.invoke('SAVE_CHANGES', {
+        ...Object.assign(data, { treeData: treeDataCopy }),
+      });
     },
   };
 
@@ -506,7 +426,6 @@ const TreeProvider = (props) => {
         fetchData,
         fetchTreeData,
         fetchSettingsData,
-        putTreeData,
         fetchID,
         showTree,
         hideTree,

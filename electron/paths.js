@@ -15,9 +15,13 @@ module.exports = {
   DB_NODES: path.join(rootPath, 'database/User/Tree/Nodes'),
   DB_PATHS: path.join(rootPath, 'database/User/Tree/Paths'),
 
-  DB_CONTROL: path.join(rootPath, 'database/User/App/control.txt'),
-  DB_ID: path.join(rootPath, 'database/User/App/ID.json'),
   DB_ICONS: path.join(rootPath, 'database/User/Icons'),
-  DB_LIST_OF_TREES: path.join(rootPath, 'database/User/listOfTrees.json'),
+
+  DB_CONTROL: path.join(rootPath, 'database/User/App/control.json'),
+
+  DB_ID: path.join(rootPath, 'database/User/App/ID.json'),
+
   DB_LIST_OF_ICONS: path.join(rootPath, 'database/User/listOfIcons.json'),
+
+  DB_USER_BACKUP: path.join(rootPath, 'database/User/Backup'),
 };

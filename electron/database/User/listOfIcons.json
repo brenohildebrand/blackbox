@@ -5,7 +5,6 @@
     { "name": "knight" },
     { "name": "pawn" },
     { "name": "queen" },
-    { "name": "rook" },
-    { "name": "engineer" }
+    { "name": "rook" }
   ]
 }
