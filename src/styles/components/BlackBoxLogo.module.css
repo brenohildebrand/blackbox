@@ -1,0 +1,15 @@
+.BlackBoxLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+
+  padding: 5px 15px;
+}
+
+.BlackBoxLogo > h3 {
+  position: relative;
+  bottom: 25px;
+}

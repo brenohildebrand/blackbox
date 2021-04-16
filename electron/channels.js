@@ -1,0 +1,18 @@
+// CHANNELS
+
+// TM --> TO MAIN
+// FM --> FROM MAIN
+
+module.exports = {
+  // Load
+  LOAD_ICONS: 'LOAD_ICONS',
+  CLOSE_LOAD: 'CLOSE_LOAD',
+
+  // App
+  FETCH_TREE_DATA: 'FETCH_TREE_DATA',
+  FETCH_SETTINGS_DATA: 'FETCH_SETTINGS_DATA',
+
+  GET_ID: 'GET_ID',
+
+  SEARCH_ICONS: 'SEARCH_ICONS',
+};

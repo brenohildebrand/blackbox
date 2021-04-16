@@ -1,0 +1,74 @@
+.navBar {
+  --iconSize: 90px;
+  --subIconSize: calc(var(--iconSize) * 0.8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 55px;
+  left: 55px;
+}
+
+.icon {
+  margin: 10px;
+}
+
+.subIcon {
+  margin: 8px;
+}
+
+.icon > svg {
+  display: block;
+
+  width: var(--iconSize);
+  height: var(--iconSize);
+}
+
+.subIcon > svg {
+  display: block;
+  width: var(--subIconSize);
+  height: var(--subIconSize);
+}
+
+.icon:hover,
+.subIcon:hover {
+  cursor: pointer;
+}
+
+.subNavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icon */
+.subNavBar > div:nth-child(1) {
+  margin-right: 15px;
+}
+
+/* White Bar */
+.subNavBar > div:nth-child(2) {
+  width: 3px;
+  height: calc(var(--subIconSize) * 0.9);
+  background-color: white;
+
+  margin-right: 10px;
+}
+
+/* SubIcons */
+.subNavBar > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+.subNavBarBackground {
+  background-color: var(--black1);
+  border-radius: 30px;
+}
+*/

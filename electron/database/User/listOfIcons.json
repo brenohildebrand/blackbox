@@ -1,0 +1,11 @@
+{
+  "icons": [
+    { "name": "bishop" },
+    { "name": "king" },
+    { "name": "knight" },
+    { "name": "pawn" },
+    { "name": "queen" },
+    { "name": "rook" },
+    { "name": "engineer" }
+  ]
+}

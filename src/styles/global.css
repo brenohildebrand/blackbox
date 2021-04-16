@@ -1,0 +1,174 @@
+/*------------------
+   GLOBAL VARIABLES   
+-------------------*/
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --black0: #494949;
+  --black1: #2b2b2b;
+  --black2: #727272;
+}
+
+/*---------------
+   GLOBAL FONTS   
+----------------*/
+@font-face {
+  font-family: 'Wallington';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Wallington/Wallington-Pro.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: lighter;
+  src: url('./fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+}
+
+/*-----------
+   ELEMENTS   
+------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Wallington';
+  font-size: 7.6rem;
+}
+
+h2 {
+  font-family: 'Wallington';
+  font-size: 4.5rem;
+}
+
+h3 {
+  font-family: 'Wallington';
+  font-size: 3.8rem;
+}
+
+h4 {
+  font-size: 3.2rem;
+}
+
+p {
+  font-family: 'Times New Roman';
+  font-size: 2.8rem;
+}
+
+input {
+  font-size: 3rem;
+
+  color: var(--white);
+  background-color: transparent;
+
+  border: none;
+  outline: none;
+}
+
+textarea {
+  font-size: 1.2rem;
+
+  color: var(--white);
+  background-color: transparent;
+
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+/*--------------- 
+   GLOBAL RULES  
+----------------*/
+html,
+body,
+#root {
+  height: 100vh !important;
+  width: 100vw !important;
+  overflow: hidden;
+}
+
+div,
+h1,
+h2,
+h3,
+h4,
+p,
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+::placeholder, /* Most modern browsers support this now. */
+::-webkit-input-placeholder, /* WebKit, Blink, Edge */
+::-moz-placeholder, /* Mozilla Firefox 19+ */
+::-ms-input-placeholder, /* Microsoft Edge */
+:-moz-placeholder, /* Mozilla Firefox 4 to 18 */
+:-ms-input-placeholder /* Internet Explorer 10-11 */ {
+  color: var(--black0);
+  /* Not Working */
+}
+
+/*----------------- 
+   GLOBAL CLASSES  
+------------------*/
+.blackBackground {
+  background-color: var(--black);
+  color: var(--white);
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  width: 100%;
+  height: 100%;
+}
+
+.whiteBackground {
+  background-color: var(--white);
+  color: var(--black);
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  width: 100%;
+  height: 100%;
+}
+
+.fullOpacity {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/*-----------------------
+   GLOBAL RESPONSIVENESS    
+------------------------*/
+@media (min-width: 500px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1500px) {
+  html {
+    font-size: 20px;
+  }
+}

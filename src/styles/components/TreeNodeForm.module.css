@@ -1,0 +1,479 @@
+/*-------
+   FORM   
+--------*/
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.title {
+  margin-top: 5vh;
+}
+
+/*------------------------------------
+   NODE GRID AND SUBNODES FLEX ARRAY   
+-------------------------------------*/
+.grid {
+  width: 70vw;
+  height: 30vh;
+
+  display: grid;
+  grid-template-columns: 4fr 8fr 6fr;
+
+  padding: 3vh;
+  border-top: 1px solid var(--black0);
+  border-bottom: 1px solid var(--black0);
+  margin-top: 1vh;
+}
+
+.subNodesArray {
+  width: 70vw;
+  height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding-top: 3vh;
+
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.subNodesArray::-webkit-scrollbar {
+  display: none;
+}
+
+.subNodesArray > div {
+  scroll-snap-align: start;
+  scroll-margin-top: -1px;
+}
+
+.subNodesArray > div:first-child {
+  scroll-margin-top: 3vh;
+}
+
+/*--------
+   FONTS  
+---------*/
+.node > div > form > input {
+  font-size: 3rem;
+  font-family: 'Open Sans';
+  font-weight: lighter;
+}
+
+.overallData > div:first-child > h3,
+.edition > div:first-child > h3,
+.subNode > div > div > form > input,
+.addSubNode > div > h3 {
+  font-size: 2rem;
+  font-family: 'Open Sans';
+  font-weight: lighter;
+}
+
+.overallData > div > div > p,
+.node > form > textarea,
+.edition > div > p,
+.editionDifficulty > div:first-child > p,
+.editionDifficulty > div > div > p,
+.editionIcons > form > input,
+.subNode > div > form > textarea {
+  font-size: 1.4rem;
+  font-family: 'Open Sans';
+  font-weight: lighter;
+}
+
+/*---------------
+   OVERALL DATA
+----------------*/
+.overallData {
+  padding-right: 2vw;
+}
+
+.overallData > div:first-child {
+  margin-bottom: 20px;
+}
+
+/* title and content */
+.overallData > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* content's divs */
+.overallData > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 95%;
+}
+
+/*-------
+   NODE
+--------*/
+.node {
+  display: block;
+
+  padding-left: 2vw;
+  padding-right: 2vw;
+
+  border-left: 1px solid var(--black0);
+}
+
+.node > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.node > div,
+.node > div > form > input,
+.node > form > textarea {
+  width: 100%;
+}
+
+.node > form > textarea {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.node > form > textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.node > form > textarea {
+  margin-top: 1vh;
+  height: 15vh;
+}
+
+.nodeDeleteButton {
+  display: block;
+  opacity: 0;
+}
+
+.nodeDeleteButton > svg {
+  fill: var(--black0);
+}
+
+.nodeDeleteButton:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+/*----------
+   EDITION   
+-----------*/
+/* title */
+.edition > div:first-child {
+  margin-bottom: 20px;
+}
+
+.edition {
+  padding-left: 2vw;
+  border-left: 1px solid var(--black0);
+}
+
+.editionDifficulty > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  color: var(--black0);
+}
+
+.editionDifficulty > div:nth-child(2) > div {
+  margin-right: 15px;
+}
+
+.editionDifficulty > div:nth-child(2) > div:last-child {
+  margin-right: 0;
+}
+
+.editionDifficulty > div:nth-child(2) > div:hover {
+  cursor: pointer;
+}
+
+.editionSelectedDifficulty {
+  color: white;
+}
+
+.editionIcons > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-top: 45px;
+}
+
+.editionIcons > div > div {
+  margin-right: 15px;
+}
+
+.editionIcons > div > div > svg {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  fill: rgba(0, 0, 0, 0);
+  stroke-width: 1.5px;
+  stroke: white;
+}
+
+.editionIcons > div > div:last-child {
+  margin-right: 0;
+}
+
+.editionIcons > div > div:hover {
+  cursor: pointer;
+}
+
+.editionSelectedIcon {
+  fill: white;
+}
+
+/*-------------------------
+   SUBNODES FLEX SUBARRAY
+--------------------------*/
+.subNodesSubArray {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+}
+
+.subNodesSubArray > div:nth-child(1) > div {
+  padding-top: 1vh;
+  border-top: 1px solid var(--black0);
+}
+
+.subNodesSubArray > div:nth-child(2) > div {
+  padding-top: 1vh;
+  border-top: 1px solid var(--black0);
+}
+
+.subNodesSubArray > div:nth-child(3) > div {
+  padding-top: 1vh;
+  border-top: 1px solid var(--black0);
+}
+
+.subNodesArray > div:first-child > div:nth-child(1) > div,
+.subNodesArray > div:first-child > div:nth-child(2) > div,
+.subNodesArray > div:first-child > div:nth-child(3) > div {
+  border-top: none;
+  padding-top: none;
+}
+
+.subNodesSubArray > div:nth-child(1) {
+  padding: 0 2vw 2vh 0;
+}
+
+.subNodesSubArray > div:nth-child(2) {
+  padding: 0 2vw 2vh 2vw;
+  border-left: 1px solid var(--black0);
+}
+
+.subNodesSubArray > div:nth-child(3) {
+  padding: 0 0 2vh 2vw;
+  border-left: 1px solid var(--black0);
+}
+
+.subNodesArray > div:first-child > div:nth-child(1),
+.subNodesArray > div:first-child > div:nth-child(2),
+.subNodesArray > div:first-child > div:nth-child(3) {
+  border-top: none;
+  padding-top: none;
+}
+/*----------
+   SUBNODE
+-----------*/
+.subNode {
+  height: 18vh;
+  flex-basis: 33.333%;
+}
+
+.subNode > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.subNode > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.subNode > div > div,
+.subNode > div > div > form > input,
+.subNode > div > form > textarea {
+  width: 100%;
+}
+
+.subNode > div > form > textarea {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.subNode > div > form > textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.subNodeDeleteButton {
+  display: block;
+  opacity: 0;
+}
+
+.subNodeDeleteButton > svg {
+  fill: var(--black0);
+}
+
+.subNodeDeleteButton:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+/*--------------
+   ADD SUBNODE
+---------------*/
+.addSubNode {
+  height: 18vh;
+  width: 100%;
+
+  flex-basis: 33.333%;
+}
+
+.addSubNode > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  color: var(--black0);
+}
+
+.addSubNode > div > svg {
+  margin-right: 13px;
+}
+
+.addSubNode > div:hover {
+  cursor: pointer;
+}
+
+/*-------------------
+   SUBNODES MESSAGE
+--------------------*/
+.subNodesMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 70vw;
+  height: 40vh;
+}
+
+.subNodesMessage > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.subNodesMessage > div:first-child > p {
+  color: var(--black0);
+  font-family: 'Open Sans';
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+.subNodesMessage > div:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--black0);
+
+  margin-top: 30px;
+}
+
+.subNodesMessage > div:last-child > h3 {
+  color: var(--black0);
+  font-family: 'Open Sans';
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+.subNodesMessage > div:last-child > svg {
+  display: block;
+  margin-right: 15px;
+
+  fill: var(--black0);
+
+  width: 35px;
+  height: 35px;
+}
+
+.subNodesMessage > div:last-child:hover {
+  cursor: pointer;
+}
+
+/*---------------
+   CLOSE BUTTON
+----------------*/
+.closeButton {
+  display: block;
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  top: 17%;
+  left: 83.8%;
+}
+
+.closeButton > svg {
+  display: block;
+  width: 45px;
+  height: 50px;
+
+  fill: var(--black0);
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}
+
+/*--------
+  OPACITY
+---------*/
+.form,
+.closeButton {
+  opacity: 0;
+  transition: opacity 0.3s ease-out !important;
+}
