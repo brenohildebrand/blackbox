@@ -189,8 +189,8 @@ ipcMain.handle(FETCH_TREE_DATA, async () => {
       const id = String(parsedTree.paths[i]);
 
       // DB_NODES + id + .json
-      const path = await readFile(path.join(DB_PATHS, id + '.json'));
-      const parsedPath = JSON.parse(path);
+      const _path = await readFile(path.join(DB_PATHS, String(id) + '.json'));
+      const parsedPath = JSON.parse(_path);
 
       paths[id] = parsedPath;
     }
@@ -267,13 +267,13 @@ ipcMain.handle(SAVE_CHANGES, async (e, data) => {
     let deletedPathsIDs = [];
 
     // Deleted Nodes IDs
-    Object.keys(parsedTree.nodes).map((nodeID) => {
+    parsedTree.nodes.map((nodeID) => {
       if (data.treeData.nodes[nodeID] === undefined)
         deletedNodesIDs.push(nodeID);
     });
 
     // Deleted Paths IDs
-    Object.keys(parsedTree.paths).map((pathID) => {
+    parsedTree.paths.map((pathID) => {
       if (data.treeData.paths[pathID] === undefined)
         deletedPathsIDs.push(pathID);
     });
@@ -292,7 +292,6 @@ ipcMain.handle(SAVE_CHANGES, async (e, data) => {
     // Delete what should be deleted
     for (let i = 0; i < deletedNodesIDs.length; i++) {
       const nodeID = deletedNodesIDs[i];
-      console.log('rm:', rm);
       await rm(path.join(DB_NODES, String(nodeID) + '.json'));
     }
 

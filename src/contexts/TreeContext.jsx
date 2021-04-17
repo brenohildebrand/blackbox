@@ -86,7 +86,7 @@ const TreeProvider = (props) => {
           delete treeDataCopy.paths[path.id];
 
           // Update data
-          setData({ ...Object.assign(data, { treeDataCopy: treeDataCopy }) });
+          setData({ ...Object.assign(data, { treeData: treeDataCopy }) });
 
           // Set alreadyExists to true
           alreadyExists = true;
@@ -117,7 +117,7 @@ const TreeProvider = (props) => {
       )
         treeDataCopy.paths[ID].status = 'done';
 
-      setData({ ...Object.assign(data, { treeDataCopy: treeDataCopy }) });
+      setData({ ...Object.assign(data, { treeData: treeDataCopy }) });
     } catch (err) {
       throw err;
     }
@@ -146,6 +146,16 @@ const TreeProvider = (props) => {
   const fetchTreeData = async () => {
     try {
       const treeData = await window.api.invoke('FETCH_TREE_DATA');
+
+      // Put delta on them cause otherwise they're undefined and will throw an error while drawing paths
+      Object.keys(treeData.nodes).map((nodeID) => {
+        treeData.nodes[nodeID].delta = { x: 0, y: 0 };
+
+        Object.keys(treeData.nodes[nodeID].subNodes).map((subNodeID) => {
+          treeData.nodes[nodeID].subNodes[subNodeID].delta = { x: 0, y: 0 };
+        });
+      });
+
       return treeData;
     } catch (err) {
       throw err;

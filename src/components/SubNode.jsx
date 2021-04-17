@@ -45,6 +45,9 @@ const SubNode = (props) => {
     ...subNodesSettings[status].svg,
   };
 
+  //! States
+  const [controlledPosition, setControlledPosition] = useState({ x: 0, y: 0 });
+
   //! Functions
   //----------------------------//
   // Handle SubNode DoubleClick //
@@ -90,12 +93,25 @@ const SubNode = (props) => {
     setData({ ...Object.assign(data, { treeData: treeDataCopy }) });
   }
 
+  //------------------//
+  // onControlledDrag //
+  //------------------//
+  function onControlledDrag(e, position) {
+    const { x, y } = position;
+    setControlledPosition({ ...{ x, y } });
+
+    let treeDataCopy = data.treeData;
+    treeDataCopy.nodes[nodeID].subNodes[id].delta = { x: x, y: y };
+
+    setData({ ...Object.assign(data, { treeData: treeDataCopy }) });
+  }
+
   //! Return
   //----------------//
   // Return SubNode //
   //----------------//
   return (
-    <Draggable key={id}>
+    <Draggable position={controlledPosition} onDrag={onControlledDrag}>
       <g
         onDoubleClick={(e) => handleSubNodeDoubleClick(e, nodeID)}
         onContextMenu={(e) => handleSubNodeRightClick(e, nodeID, id)}
